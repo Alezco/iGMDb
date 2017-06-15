@@ -1,20 +1,15 @@
 //
-//  MovieListTVC.swift
+//  SettingsTVC.swift
 //  GoodMovieApplication
 //
-//  Created by hadrien de lamotte on 12/06/2017.
+//  Created by hadrien de lamotte on 15/06/2017.
 //  Copyright © 2017 hadrien de lamotte. All rights reserved.
 //
 
 import UIKit
 
-class MovieListTVC: UITableViewController, UISearchResultsUpdating {
+class SettingsTVC: UITableViewController {
 
-    var originalMovies : Array<MovieModel> = []
-    var movies : Array<MovieModel> = []
-    let searchController = UISearchController(searchResultsController: nil)
-    var selectedIndex : IndexPath = IndexPath();
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,34 +18,6 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        tableView.tableHeaderView = searchController.searchBar
-        loadMovies();
-        
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            movies = originalMovies.filter {
-                return $0.title.contains(searchText)
-            }
-        } else {
-            movies = originalMovies
-        }
-        tableView.reloadData()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        searchController.dismiss(animated: false, completion: nil)
-    }
-    
-    func loadMovies() {
-        self.originalMovies = databaseLink.getAllMovies();
-        self.movies = self.originalMovies;
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,18 +32,36 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.movies.count;
+        return 3
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.row == 0) {
+            // create the alert
+            let alert = UIAlertController(title: "Reset", message: "Do you confirm restauring default data ?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add the actions (buttons)
+            alert.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.default, handler: { action in
+                let defaults = UserDefaults.standard
+                defaults.set([], forKey: "Favorites")
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        cell.textLabel?.text = self.movies[indexPath.row].title;
+        // Configure the cell...
 
         return cell
     }
- 
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -112,23 +97,15 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
         return true
     }
     */
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath;
-        
-        performSegue(withIdentifier: "showDetail", sender: self)
-    }
-    
+
+    /*
     // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Create a variable that you want to send
-        if (segue.identifier == "showDetail") {
-            let destinationVC = segue.destination as! MovieDetailVC;
-            let movieToPass = movies[selectedIndex.row];
-            destinationVC.movie = movieToPass;
-        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
- 
+    */
 
 }

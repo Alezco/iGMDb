@@ -18,11 +18,14 @@ class SplashViewController: UIViewController {
                 // Do any additional setup after loading the view.
             
         
-        let db = databaseLink.initDatabaseConnection() as! Connection
-        _ = databaseLink.deleteMovietable(db: db);
-        _ = databaseLink.populateDB(db: db);
-        print("DB connection succed")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        databaseLink.initDatabaseConnection()
+        let res = databaseLink.deleteMovietable();
+        _ = databaseLink.populateDB();
+            databaseLink.setUserFavorites();
+            if (res) {
+                print("DB connection succed")
+            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.goToHomePage();
         }
     }

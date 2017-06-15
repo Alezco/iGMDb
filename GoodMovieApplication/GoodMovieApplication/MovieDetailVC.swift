@@ -10,10 +10,14 @@ import UIKit
 
 class MovieDetailVC: UIViewController {
 
+    var movie : MovieModel?;
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.titleLabel.text = movie?.title;
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +25,6 @@ class MovieDetailVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

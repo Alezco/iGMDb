@@ -30,14 +30,19 @@ class databaseLink: NSObject {
     }
     
     
-    static func deleteMovietable(db : Connection) -> Bool {
+    static func deleteMovietable() -> Bool {
         do {
-            _ = try db.prepare("DROP TABLE IF EXISTS movies;")
+            _ = try db?.execute("DROP TABLE IF EXISTS movies;")
             return true;
         }
         catch  {
             return false;
         }
+    }
+    
+    static func setUserFavorites() {
+        let defaults = UserDefaults.standard
+        defaults.set([1, 2, 3, 4, 5], forKey: "Favorites")
     }
     
     static func getAllMovies() -> Array<MovieModel> {
@@ -54,9 +59,9 @@ class databaseLink: NSObject {
     }
 
     
-    static func populateDB(db : Connection) -> Bool {
+    static func populateDB() -> Bool {
         do {
-            try db.execute(
+            try db?.execute(
                 "CREATE TABLE IF NOT EXISTS movies (" +
                     "id integer primary key autoincrement," +
                     "Title VARCHAR(255) NOT NULL," +
