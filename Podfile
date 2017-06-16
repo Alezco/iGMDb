@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '8.0'
 
 project 'iGMDb/iGMDb.xcodeproj'
 
@@ -9,5 +9,5 @@ target 'iGMDb' do
 
   # Pods for GoodMovieApplication
   pod 'YouTubePlayer'
-  pod 'SQLite.swift', '~> 0.11.3'
+  pod 'SQLite.swift', '~> 0.11.2'
 end

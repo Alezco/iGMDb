@@ -18,7 +18,7 @@ class SplashViewController: UIViewController {
                 // Do any additional setup after loading the view.
             
         
-        databaseLink.initDatabaseConnection()
+        _ = databaseLink.initDatabaseConnection()
         let res = databaseLink.deleteMovietable();
         _ = databaseLink.populateDB();
             databaseLink.setUserFavorites();

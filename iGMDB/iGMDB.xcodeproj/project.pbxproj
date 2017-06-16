@@ -230,6 +230,7 @@
 				TargetAttributes = {
 					4C3733511EF4275F00975977 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = UTD53L9DP6;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -456,7 +457,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = UTD53L9DP6;
 				INFOPLIST_FILE = iGMDb/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epita.iGMDb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -472,7 +475,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = UTD53L9DP6;
 				INFOPLIST_FILE = iGMDb/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epita.iGMDb;
 				PRODUCT_NAME = "$(TARGET_NAME)";

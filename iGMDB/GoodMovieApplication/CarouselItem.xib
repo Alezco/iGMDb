@@ -11,12 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Qft-5n-j6b" customClass="FavoritesCVC" customModule="GoodMovieApplication" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="307" height="465"/>
+        <view contentMode="scaleToFill" id="Qft-5n-j6b" customClass="FavoritesCVC" customModule="iGMDb" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="161" height="238"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="posterExample" translatesAutoresizingMaskIntoConstraints="NO" id="aqY-Jp-cGT">
-                    <rect key="frame" x="3" y="10" width="300" height="445"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="posterPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="aqY-Jp-cGT">
+                    <rect key="frame" x="3" y="10" width="150" height="220"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
@@ -28,10 +28,10 @@
             <connections>
                 <outlet property="posterImageView" destination="aqY-Jp-cGT" id="8MQ-o3-Wg7"/>
             </connections>
-            <point key="canvasLocation" x="169.5" y="721.5"/>
+            <point key="canvasLocation" x="96.5" y="616"/>
         </view>
     </objects>
     <resources>
-        <image name="posterExample" width="300" height="445"/>
+        <image name="posterPlaceholder" width="150" height="222"/>
     </resources>
 </document>
