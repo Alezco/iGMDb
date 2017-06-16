@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		48D701B21EF470DA00FD0EE8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D701B11EF470DA00FD0EE8 /* iCarousel.m */; };
+		48D701B61EF4741200FD0EE8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D701B41EF4741200FD0EE8 /* iCarousel.m */; };
 		4C3733561EF4275F00975977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3733551EF4275F00975977 /* AppDelegate.swift */; };
 		4C37337D1EF4279A00975977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3733691EF4279A00975977 /* Assets.xcassets */; };
 		4C37337E1EF4279A00975977 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C37336A1EF4279A00975977 /* LaunchScreen.storyboard */; };
@@ -29,8 +29,9 @@
 
 /* Begin PBXFileReference section */
 		0E3752BF2E14F69DD3CF2C88 /* Pods-iGMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGMDb.release.xcconfig"; path = "../Pods/Target Support Files/Pods-iGMDb/Pods-iGMDb.release.xcconfig"; sourceTree = "<group>"; };
-		48D701B01EF470DA00FD0EE8 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
-		48D701B11EF470DA00FD0EE8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		48D701B31EF4741100FD0EE8 /* iGMDb-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iGMDb-Bridging-Header.h"; sourceTree = "<group>"; };
+		48D701B41EF4741200FD0EE8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		48D701B51EF4741200FD0EE8 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		4C3733521EF4275F00975977 /* iGMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C3733551EF4275F00975977 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C3733611EF4275F00975977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,8 +179,9 @@
 		84E3C53C1EF43B7C001088B0 /* iCarousel */ = {
 			isa = PBXGroup;
 			children = (
-				48D701B01EF470DA00FD0EE8 /* iCarousel.h */,
-				48D701B11EF470DA00FD0EE8 /* iCarousel.m */,
+				48D701B41EF4741200FD0EE8 /* iCarousel.m */,
+				48D701B51EF4741200FD0EE8 /* iCarousel.h */,
+				48D701B31EF4741100FD0EE8 /* iGMDb-Bridging-Header.h */,
 			);
 			path = iCarousel;
 			sourceTree = "<group>";
@@ -229,7 +231,7 @@
 					4C3733511EF4275F00975977 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = UTD53L9DP6;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -320,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C3733871EF4279A00975977 /* MovieListTVC.swift in Sources */,
-				48D701B21EF470DA00FD0EE8 /* iCarousel.m in Sources */,
+				48D701B61EF4741200FD0EE8 /* iCarousel.m in Sources */,
 				4C3733811EF4279A00975977 /* databaseLink.swift in Sources */,
 				4C3733881EF4279A00975977 /* MovieModel.swift in Sources */,
 				4C37338A1EF4279A00975977 /* SplashViewController.swift in Sources */,
@@ -461,7 +463,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epita.iGMDb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "iGMDb/iGMDb-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "iGMDb/iCarousel/iGMDb-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -479,7 +481,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epita.iGMDb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "iGMDb/iGMDb-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "iGMDb/iCarousel/iGMDb-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
