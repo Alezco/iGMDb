@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  GoodMovieApplication
+//  iGMDb
 //
-//  Created by hadrien de lamotte on 12/06/2017.
-//  Copyright © 2017 hadrien de lamotte. All rights reserved.
+//  Created by epita on 16/06/17.
+//  Copyright © 2017 epita. All rights reserved.
 //
 
 import UIKit
