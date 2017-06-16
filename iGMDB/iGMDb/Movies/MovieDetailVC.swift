@@ -7,22 +7,57 @@
 //
 
 import UIKit
+import YouTubePlayer
 
 class MovieDetailVC: UIViewController {
 
     var movie : MovieModel?;
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var directorLabel: UILabel!
+    @IBOutlet weak var actorsLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var plotLabel: UILabel!
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.titleLabel.text = movie?.title;
+        self.yearLabel.text = movie?.realeased;
+        self.genreLabel.text = movie?.genre;
+        self.directorLabel.text = movie?.director;
+        self.actorsLabel.text = movie?.actors;
+        self.countryLabel.text = movie?.country;
+        self.languageLabel.text = movie?.language;
+        self.plotLabel.text = movie?.plot;
+        downloadImage(url: URL(string: (movie?.poster)!)!);
+        youtubePlayer.loadVideoURL(URL(string: (movie?.Youtube)!)!);
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
+    }
+    
+    func downloadImage(url: URL) {
+        getDataFromUrl(url: url) { (data, response, error)  in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async() { () -> Void in
+                self.posterImageView.image = UIImage(data: data)
+            }
+        }
     }
     
     /*
