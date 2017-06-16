@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import AVFoundation
 
-class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate {
+class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate,UIGestureRecognizerDelegate {
+    
     var movies : Array<MovieModel> = []
+    var currentIndex : Int = -1;
     @IBOutlet weak var carousel: iCarousel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         movies = databaseLink.getAllMovies();
         let defaults = UserDefaults.standard
@@ -25,7 +28,7 @@ class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate {
         carousel.type = .coverFlow2
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,16 +37,26 @@ class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate {
     func numberOfItems(in carousel: iCarousel) -> Int {
         return movies.count
     }
-    
+        
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         var myView: FavoritesCVC? = nil;
         //reuse view if available, otherwise create a new view
-        myView = UINib(nibName: "CarouselItem", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView as? FavoritesCVC
         
+        
+        //reuse view if available, otherwise create a new view
+        if let view = view as? FavoritesCVC {
+            myView = view;
+        } else {
+            myView = UINib(nibName: "CarouselItem", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView as? FavoritesCVC
+        }
+        myView?.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        myView?.addGestureRecognizer(tapGesture)
         myView?.setUpPoster(url: self.movies [index].poster);
         
         return myView!
     }
+    
     
     func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
         if (option == .spacing) {
@@ -51,6 +64,11 @@ class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate {
         }
         return value
     }
+    
+    func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
+        currentIndex = carousel.currentItemIndex;
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -61,5 +79,21 @@ class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Create a variable that you want to send
+        if (segue.identifier == "custom") {
+            let destinationVC = segue.destination as! MovieDetailVC;
+            let movieToPass = movies[currentIndex];
+            destinationVC.movie = movieToPass;
+        }
+    }
+
+    
+    func doubleTapped() {
+        performSegue(withIdentifier: "custom", sender: self)
+    }
 
 }
