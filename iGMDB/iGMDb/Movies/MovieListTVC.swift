@@ -29,7 +29,7 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
         loadMovies();
-        self.tableView.register(UINib(nibName: "ListItemViewCell.xib", bundle: nil), forCellReuseIdentifier: "customCell")
+        self.tableView.register(UINib(nibName: "ListItemViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         
     }
     

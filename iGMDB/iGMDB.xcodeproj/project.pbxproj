@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48BD83E01EF5BBCD00E5A06B /* ListItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BD83DF1EF5BBCD00E5A06B /* ListItemViewCell.xib */; };
 		48D701B61EF4741200FD0EE8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D701B41EF4741200FD0EE8 /* iCarousel.m */; };
 		4C3733561EF4275F00975977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3733551EF4275F00975977 /* AppDelegate.swift */; };
 		4C37337D1EF4279A00975977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3733691EF4279A00975977 /* Assets.xcassets */; };
@@ -22,7 +23,6 @@
 		4C3733891EF4279A00975977 /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3733791EF4279A00975977 /* SettingsTVC.swift */; };
 		4C37338A1EF4279A00975977 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37337A1EF4279A00975977 /* SplashViewController.swift */; };
 		78D77A873FB9F0DA8F55B97B /* Pods_iGMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89350CE34E8CB7DFA9B95F5C /* Pods_iGMDb.framework */; };
-		841C27091EF5203200FB8A7A /* ListItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841C27081EF5203200FB8A7A /* ListItemViewCell.xib */; };
 		841C270B1EF523F500FB8A7A /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C270A1EF523F500FB8A7A /* MovieTableViewCell.swift */; };
 		84E3C5341EF43A7F001088B0 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E3C5321EF43A7F001088B0 /* SQLite.framework */; };
 		84E3C5351EF43A7F001088B0 /* YouTubePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E3C5331EF43A7F001088B0 /* YouTubePlayer.framework */; };
@@ -31,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		0E3752BF2E14F69DD3CF2C88 /* Pods-iGMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGMDb.release.xcconfig"; path = "../Pods/Target Support Files/Pods-iGMDb/Pods-iGMDb.release.xcconfig"; sourceTree = "<group>"; };
+		48BD83DF1EF5BBCD00E5A06B /* ListItemViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListItemViewCell.xib; path = ../../../iGMDB/iGMDb/Storyboards/ListItemViewCell.xib; sourceTree = "<group>"; };
 		48D701B31EF4741100FD0EE8 /* iGMDb-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iGMDb-Bridging-Header.h"; sourceTree = "<group>"; };
 		48D701B41EF4741200FD0EE8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		48D701B51EF4741200FD0EE8 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		4C3733791EF4279A00975977 /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		4C37337A1EF4279A00975977 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		68136CF67B6A3FA00682AF2A /* Pods-iGMDb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGMDb.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-iGMDb/Pods-iGMDb.debug.xcconfig"; sourceTree = "<group>"; };
-		841C27081EF5203200FB8A7A /* ListItemViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListItemViewCell.xib; path = ../iGMDB/iGMDB/Storyboards/ListItemViewCell.xib; sourceTree = SOURCE_ROOT; };
 		841C270A1EF523F500FB8A7A /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		84E3C5321EF43A7F001088B0 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "../../../Library/Developer/Xcode/DerivedData/iGMDb-elrirhgcbiifwyetlgdgealwlxry/Build/Products/Debug-iphonesimulator/SQLite.swift/SQLite.framework"; sourceTree = "<group>"; };
 		84E3C5331EF43A7F001088B0 /* YouTubePlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YouTubePlayer.framework; path = "../../../Library/Developer/Xcode/DerivedData/iGMDb-elrirhgcbiifwyetlgdgealwlxry/Build/Products/Debug-iphonesimulator/YouTubePlayer/YouTubePlayer.framework"; sourceTree = "<group>"; };
@@ -120,9 +120,9 @@
 		48CCC47D1EF4635400A668E9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				48BD83DF1EF5BBCD00E5A06B /* ListItemViewCell.xib */,
 				4C37336A1EF4279A00975977 /* LaunchScreen.storyboard */,
 				4C37336C1EF4279A00975977 /* Main.storyboard */,
-				841C27081EF5203200FB8A7A /* ListItemViewCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 			files = (
 				4C3733801EF4279A00975977 /* CarouselItem.xib in Resources */,
 				4C37337D1EF4279A00975977 /* Assets.xcassets in Resources */,
-				841C27091EF5203200FB8A7A /* ListItemViewCell.xib in Resources */,
+				48BD83E01EF5BBCD00E5A06B /* ListItemViewCell.xib in Resources */,
 				4C37337F1EF4279A00975977 /* Main.storyboard in Resources */,
 				4C37337E1EF4279A00975977 /* LaunchScreen.storyboard in Resources */,
 			);
