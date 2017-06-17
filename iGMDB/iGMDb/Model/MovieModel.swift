@@ -30,6 +30,8 @@ class MovieModel: NSObject {
     let imdbVotes : String;
     let boxOffice : String;
     let Youtube : String;
+    let liked : Bool;
+    let viewed : Bool;
     
     init(data : Array<Any>) {
         id = data[0] as! Int64
@@ -52,5 +54,7 @@ class MovieModel: NSObject {
         imdbVotes = data[17] as! String
         boxOffice = data[18] as! String
         Youtube = data[19] as! String
+        liked = false
+        viewed = false
     }
 }

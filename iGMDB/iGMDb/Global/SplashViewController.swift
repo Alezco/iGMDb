@@ -8,10 +8,12 @@
 
 import UIKit
 import SQLite
+import pop
 
 class SplashViewController: UIViewController {
 
 
+    @IBOutlet weak var YLabelConstrainst: NSLayoutConstraint!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
         override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,12 @@ class SplashViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.goToHomePage();
         }
+            
+        let spring = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)
+        spring?.toValue = 40
+        spring?.springBounciness = 20 // a float between 0 and 20
+        spring?.springSpeed = 8
+        YLabelConstrainst.pop_add(spring, forKey: "moveDown")
     }
 
     override func didReceiveMemoryWarning() {

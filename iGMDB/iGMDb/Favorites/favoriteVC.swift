@@ -11,22 +11,23 @@ import AVFoundation
 
 class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate,UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var noFavoritesTV: UILabel!
     var movies : Array<MovieModel> = []
-    var currentIndex : Int = -1;
+    var currentIndex : Int = 0;
     @IBOutlet weak var carousel: iCarousel!
+    var defaults : UserDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         movies = databaseLink.getAllMovies();
-        let defaults = UserDefaults.standard
-        let favorites = defaults.array(forKey: "Favorites")
-        movies = movies.filter { (movie : MovieModel) -> Bool in
-            return favorites!.contains(where: {movie.id == $0 as! Int64})
-        }
-        self.carousel.reloadData();
+        self.updateCarousel();
         carousel.type = .coverFlow2
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.updateCarousel();
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,6 +37,19 @@ class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate,UIGes
     
     func numberOfItems(in carousel: iCarousel) -> Int {
         return movies.count
+    }
+    
+    func updateCarousel() {
+        let favorites = defaults.array(forKey: "Favorites")
+        movies = movies.filter { (movie : MovieModel) -> Bool in
+            return favorites!.contains(where: {movie.id == $0 as! Int64})
+        }
+        if (movies.count == 0) {
+            self.noFavoritesTV.isHidden = false;
+        } else {
+            self.noFavoritesTV.isHidden = true;
+        }
+        self.carousel.reloadData();
     }
         
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
@@ -94,6 +108,22 @@ class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate,UIGes
     
     func doubleTapped() {
         performSegue(withIdentifier: "custom", sender: self)
+    }
+    
+    
+    @IBAction func onRemoveClick(_ sender: Any) {
+        var favorites = defaults.array(forKey: "Favorites")
+        let deleteId = movies[currentIndex]
+        favorites = favorites?.filter() { $0 as! Int64 != deleteId.id }
+        defaults.set(favorites, forKey: "Favorites")
+        defaults.synchronize()
+        favorites = defaults.array(forKey: "Favorites")
+        if (favorites?.count == 0) {
+            self.noFavoritesTV.isHidden = false;
+        }
+        movies.remove(at: currentIndex)
+        carousel.removeItem(at: currentIndex, animated: true)
+        self.carousel.delegate?.carouselCurrentItemIndexDidChange!(self.carousel);
     }
 
 }

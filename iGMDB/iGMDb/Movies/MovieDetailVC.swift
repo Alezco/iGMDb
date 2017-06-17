@@ -8,6 +8,7 @@
 
 import UIKit
 import YouTubePlayer
+import pop
 
 class MovieDetailVC: UIViewController {
 
@@ -22,6 +23,7 @@ class MovieDetailVC: UIViewController {
     @IBOutlet weak var plotLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,5 +71,23 @@ class MovieDetailVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func onFavoriteClick(_ sender: Any) {
+            if let springAnimation = POPSpringAnimation(propertyNamed:
+                kPOPViewScaleXY){
+                springAnimation.toValue = NSValue(cgPoint: CGPoint(x:2, y:2))
+                springAnimation.velocity = NSValue(cgPoint: CGPoint(x:1, y:1))
+                springAnimation.springBounciness = 20.0
+                springAnimation.completionBlock = {(animation, end) in
+                    if let springAnimation2 = POPSpringAnimation(propertyNamed:
+                        kPOPViewScaleXY){
+                        springAnimation2.toValue = NSValue(cgPoint: CGPoint(x:1, y:1))
+                        springAnimation2.velocity = NSValue(cgPoint: CGPoint(x:1, y:1))
+                        springAnimation2.springBounciness = 20.0
+                    self.favoriteButton.pop_add(springAnimation2, forKey:"springAnimation")
+                    }
+                }
+                
+                self.favoriteButton.pop_add(springAnimation, forKey:"springAnimation")
+            }
+    }
 }

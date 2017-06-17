@@ -10,4 +10,5 @@ target 'iGMDb' do
   # Pods for GoodMovieApplication
   pod 'YouTubePlayer'
   pod 'SQLite.swift', '~> 0.11.2'
+  pod 'pop', '~> 1.0'
 end
