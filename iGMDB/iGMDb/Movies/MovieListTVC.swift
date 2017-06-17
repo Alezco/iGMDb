@@ -29,6 +29,7 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
         loadMovies();
+        self.tableView.register(UINib(nibName: "ListItemViewCell.xib", bundle: nil), forCellReuseIdentifier: "customCell")
         
     }
     
@@ -70,10 +71,10 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
-
-        cell.textLabel?.text = self.movies[indexPath.row].title;
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MovieTableViewCell;
+        //cell.textLabel?.text = self.movies[indexPath.row].title;
+        //cell.movie = self.movies[indexPath.row];
+        //cell.movieTitle.text = self.movies[indexPath.row].title;
         return cell
     }
  
