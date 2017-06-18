@@ -17,14 +17,23 @@ class MovieTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib();
-        //downloadImage(url: URL(string: (movie?.poster)!)!);
-        //movieTitle.text = movie?.title;
+    }
+    
+    func setMovie() {
+        movieTitle.text = movie?.title;
+        downloadImage(url: URL(string: (movie?.poster)!)!);
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        movieTitle.text = "";
+        self.moviePoster.image = UIImage(named:"posterPlaceholder")
+        super.prepareForReuse()
     }
     
     func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {

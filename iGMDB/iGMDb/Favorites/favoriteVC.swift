@@ -12,6 +12,7 @@ import pop
 
 class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate,UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var removeButton: UIBarButtonItem!
     @IBOutlet weak var noFavoritesTV: UILabel!
     var movies : Array<MovieModel> = []
     var currentIndex : Int = 0;
@@ -21,7 +22,6 @@ class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate,UIGes
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        movies = databaseLink.getAllMovies();
         self.updateCarousel();
         carousel.type = .coverFlow2
         // Do any additional setup after loading the view.
@@ -41,6 +41,7 @@ class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate,UIGes
     }
     
     func updateCarousel() {
+        movies = databaseLink.getAllMovies();
         let favorites = defaults.array(forKey: "Favorites")
         movies = movies.filter { (movie : MovieModel) -> Bool in
             return favorites!.contains(where: {movie.id == $0 as! Int64})
@@ -114,9 +115,13 @@ class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate,UIGes
             }
         } else {
             self.noFavoritesTV.isHidden = false;
+            self.removeButton.isEnabled = false;
             if let shake = POPSpringAnimation(propertyNamed: kPOPLayerPositionX){
                 shake.springBounciness = 20.0
                 shake.velocity = 1500
+                shake.completionBlock = {(animation, end) in
+                    self.removeButton.isEnabled = true;
+                }
                 self.noFavoritesTV.layer.pop_add(shake, forKey: "shakePassword")
             }
         }

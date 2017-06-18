@@ -3,3 +3,8 @@
 //
 
 #import "iCarousel.h"
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
+#import <FBSDKMessengerShareKit/FBSDKMessengerShareKit.h>
+

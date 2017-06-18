@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48390AD41EF6DA2400F71414 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390AD31EF6DA2400F71414 /* FBSDKCoreKit.framework */; };
+		48390AD61EF6DA2700F71414 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390AD51EF6DA2700F71414 /* FBSDKLoginKit.framework */; };
+		48390AD81EF6DA2A00F71414 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390AD71EF6DA2A00F71414 /* FBSDKShareKit.framework */; };
+		48390ADA1EF6DA3000F71414 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390AD91EF6DA3000F71414 /* Bolts.framework */; };
+		48390ADD1EF6EE7800F71414 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390ADC1EF6EE7800F71414 /* FBSDKMessengerShareKit.framework */; };
 		48BD83E01EF5BBCD00E5A06B /* ListItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BD83DF1EF5BBCD00E5A06B /* ListItemViewCell.xib */; };
 		48D701B61EF4741200FD0EE8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D701B41EF4741200FD0EE8 /* iCarousel.m */; };
 		4C3733561EF4275F00975977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3733551EF4275F00975977 /* AppDelegate.swift */; };
@@ -31,6 +36,11 @@
 
 /* Begin PBXFileReference section */
 		0E3752BF2E14F69DD3CF2C88 /* Pods-iGMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGMDb.release.xcconfig"; path = "../Pods/Target Support Files/Pods-iGMDb/Pods-iGMDb.release.xcconfig"; sourceTree = "<group>"; };
+		48390AD31EF6DA2400F71414 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../Pods/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		48390AD51EF6DA2700F71414 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../Pods/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		48390AD71EF6DA2A00F71414 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../Pods/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		48390AD91EF6DA3000F71414 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Pods/Bolts.framework; sourceTree = "<group>"; };
+		48390ADC1EF6EE7800F71414 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = ../Pods/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
 		48BD83DF1EF5BBCD00E5A06B /* ListItemViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListItemViewCell.xib; path = ../../../iGMDB/iGMDb/Storyboards/ListItemViewCell.xib; sourceTree = "<group>"; };
 		48D701B31EF4741100FD0EE8 /* iGMDb-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iGMDb-Bridging-Header.h"; sourceTree = "<group>"; };
 		48D701B41EF4741200FD0EE8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
@@ -63,10 +73,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48390AD61EF6DA2700F71414 /* FBSDKLoginKit.framework in Frameworks */,
 				84E3C5371EF43A86001088B0 /* QuartzCore.framework in Frameworks */,
 				84E3C5341EF43A7F001088B0 /* SQLite.framework in Frameworks */,
 				84E3C5351EF43A7F001088B0 /* YouTubePlayer.framework in Frameworks */,
 				78D77A873FB9F0DA8F55B97B /* Pods_iGMDb.framework in Frameworks */,
+				48390AD81EF6DA2A00F71414 /* FBSDKShareKit.framework in Frameworks */,
+				48390ADD1EF6EE7800F71414 /* FBSDKMessengerShareKit.framework in Frameworks */,
+				48390ADA1EF6DA3000F71414 /* Bolts.framework in Frameworks */,
+				48390AD41EF6DA2400F71414 /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +189,11 @@
 		809D59306066DB4C71B48F41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				48390ADC1EF6EE7800F71414 /* FBSDKMessengerShareKit.framework */,
+				48390AD91EF6DA3000F71414 /* Bolts.framework */,
+				48390AD71EF6DA2A00F71414 /* FBSDKShareKit.framework */,
+				48390AD51EF6DA2700F71414 /* FBSDKLoginKit.framework */,
+				48390AD31EF6DA2400F71414 /* FBSDKCoreKit.framework */,
 				84E3C5361EF43A86001088B0 /* QuartzCore.framework */,
 				84E3C5321EF43A7F001088B0 /* SQLite.framework */,
 				84E3C5331EF43A7F001088B0 /* YouTubePlayer.framework */,
@@ -463,9 +483,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 68136CF67B6A3FA00682AF2A /* Pods-iGMDb.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = UTD53L9DP6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SQLite.swift\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/YouTubePlayer\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/pop\"",
+					"~/Documents/FacebookSDK/**",
+				);
 				INFOPLIST_FILE = iGMDb/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -481,9 +510,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0E3752BF2E14F69DD3CF2C88 /* Pods-iGMDb.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = UTD53L9DP6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SQLite.swift\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/YouTubePlayer\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/pop\"",
+					"~/Documents/FacebookSDK/**",
+				);
 				INFOPLIST_FILE = iGMDb/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

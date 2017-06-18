@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class MovieListTVC: UITableViewController, UISearchResultsUpdating {
 
@@ -17,8 +19,8 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
+        
+                // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -30,8 +32,10 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
         tableView.tableHeaderView = searchController.searchBar
         loadMovies();
         self.tableView.register(UINib(nibName: "ListItemViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
-        
     }
+
+    
+    
     
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
@@ -72,9 +76,8 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MovieTableViewCell;
-        //cell.textLabel?.text = self.movies[indexPath.row].title;
-        //cell.movie = self.movies[indexPath.row];
-        //cell.movieTitle.text = self.movies[indexPath.row].title;
+        cell.movie = self.movies[indexPath.row];
+        cell.setMovie();
         return cell
     }
  
