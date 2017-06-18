@@ -10,7 +10,7 @@ import UIKit
 import YouTubePlayer
 import pop
 
-class MovieDetailVC: UIViewController {
+class MovieDetailVC: UIViewController, YouTubePlayerDelegate {
 
     var movie : MovieModel?;
     @IBOutlet weak var titleLabel: UILabel!
@@ -24,10 +24,16 @@ class MovieDetailVC: UIViewController {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // begin receiving remote events
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        youtubePlayer.delegate = self;
 
+        self.activityIndicator.isHidden = false;
         // Do any additional setup after loading the view.
         self.titleLabel.text = movie?.title;
         self.yearLabel.text = movie?.realeased;
@@ -61,6 +67,12 @@ class MovieDetailVC: UIViewController {
                 self.posterImageView.image = UIImage(data: data)
             }
         }
+    }
+    
+    func playerReady(_ videoPlayer: YouTubePlayerView){
+        print("Player Ready!")
+        youtubePlayer.isHidden = false;
+        activityIndicator.isHidden = true;
     }
     
     /*
