@@ -38,7 +38,8 @@ class MovieDetailVC: UIViewController {
         self.languageLabel.text = movie?.language;
         self.plotLabel.text = movie?.plot;
         downloadImage(url: URL(string: (movie?.poster)!)!);
-        youtubePlayer.loadVideoURL(URL(string: (movie?.Youtube)!)!);
+        let urlArray: [String] = (movie?.Youtube.components(separatedBy: "/"))!
+        youtubePlayer.loadVideoID(urlArray[urlArray.count - 1])
     }
 
     override func didReceiveMemoryWarning() {

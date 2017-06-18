@@ -33,7 +33,7 @@ class SplashViewController: UIViewController {
             
         let spring = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)
         spring?.toValue = 40
-        spring?.springBounciness = 20 // a float between 0 and 20
+        spring?.springBounciness = 10 // a float between 0 and 20
         spring?.springSpeed = 8
         YLabelConstrainst.pop_add(spring, forKey: "moveDown")
     }
