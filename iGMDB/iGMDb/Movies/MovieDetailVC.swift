@@ -20,11 +20,11 @@ class MovieDetailVC: UIViewController, YouTubePlayerDelegate {
     @IBOutlet weak var actorsLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var plotLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var plotTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class MovieDetailVC: UIViewController, YouTubePlayerDelegate {
         self.actorsLabel.text = movie?.actors;
         self.countryLabel.text = movie?.country;
         self.languageLabel.text = movie?.language;
-        self.plotLabel.text = movie?.plot;
+        self.plotTextView.text = movie?.plot;
         downloadImage(url: URL(string: (movie?.poster)!)!);
         let urlArray: [String] = (movie?.Youtube.components(separatedBy: "/"))!
         youtubePlayer.loadVideoID(urlArray[urlArray.count - 1])

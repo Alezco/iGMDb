@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import pop
 
 class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate,UIGestureRecognizerDelegate {
     
@@ -100,17 +101,25 @@ class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate,UIGes
     
     @IBAction func onRemoveClick(_ sender: Any) {
         var favorites = defaults.array(forKey: "Favorites")
-        let deleteId = movies[currentIndex]
-        favorites = favorites?.filter() { $0 as! Int64 != deleteId.id }
-        defaults.set(favorites, forKey: "Favorites")
-        defaults.synchronize()
-        favorites = defaults.array(forKey: "Favorites")
-        if (favorites?.count == 0) {
+        if (movies.count > 0) {
+            let deleteId = movies [currentIndex]
+            favorites = favorites?.filter() { $0 as! Int64 != deleteId.id }
+            defaults.set(favorites, forKey: "Favorites")
+            defaults.synchronize()
+            movies.remove(at: currentIndex)
+            carousel.removeItem(at: currentIndex, animated: true)
+            self.carousel.delegate?.carouselCurrentItemIndexDidChange!(self.carousel);
+            if (favorites?.count == 0) {
+                self.noFavoritesTV.isHidden = false;
+            }
+        } else {
             self.noFavoritesTV.isHidden = false;
+            if let shake = POPSpringAnimation(propertyNamed: kPOPLayerPositionX){
+                shake.springBounciness = 20.0
+                shake.velocity = 1500
+                self.noFavoritesTV.layer.pop_add(shake, forKey: "shakePassword")
+            }
         }
-        movies.remove(at: currentIndex)
-        carousel.removeItem(at: currentIndex, animated: true)
-        self.carousel.delegate?.carouselCurrentItemIndexDidChange!(self.carousel);
     }
 
 }
