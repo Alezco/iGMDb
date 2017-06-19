@@ -12,7 +12,6 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieFavorite: UIImageView!
-    var isFavorite: Bool = false;
     var movie: MovieModel?;
 
     override func awakeFromNib() {
@@ -20,14 +19,29 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     func setMovie() {
-        movieTitle.text = movie?.title;
-        downloadImage(url: URL(string: (movie?.poster)!)!);
+        movieTitle.text = movie?.title
+        downloadImage(url: URL(string: (movie?.poster)!)!)
+        movieFavorite.isHidden = !isFavorite()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func isFavorite() -> Bool {
+        let defaults : UserDefaults = UserDefaults.standard
+        let favorites = defaults.array(forKey: "Favorites")
+        let currID : Int = Int(truncatingBitPattern: (self.movie?.id)!)
+        let index = favorites?.index(where: { $0 as! Int == currID })
+        if (index == nil) {
+            return false
+        }
+        else
+        {
+            return true
+        }
     }
     
     override func prepareForReuse() {

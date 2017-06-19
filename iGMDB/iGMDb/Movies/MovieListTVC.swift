@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class MovieListTVC: UITableViewController, UISearchResultsUpdating {
+class MovieListTVC: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
 
     var originalMovies : Array<MovieModel> = []
     var movies : Array<MovieModel> = []
@@ -19,6 +19,7 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
     var sections : [String] = ["Actors", "Directors", "Title", "Year"]
     var searchingText : String = "";
     var searchItems = [[]]
+    var searchMatch = [[]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +33,14 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
+        self.searchController.searchBar.delegate = self;
         tableView.tableHeaderView = searchController.searchBar
         loadMovies();
         self.tableView.register(UINib(nibName: "ListItemViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         self.tableView.register(UINib(nibName: "SearchListItemCell", bundle: nil), forCellReuseIdentifier: "searchCell")
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
     }
     
@@ -47,24 +49,29 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
             self.searchingText = searchText
             
             self.searchItems = []
+            self.searchMatch = []
             for i in sections{
                 print(i)
+                var subArrayMatch = [String]()
                 var subArray = [MovieModel]()
                 for j in originalMovies
                 {
                     if (i == "Actors") {
                         if (j.actors.contains(searchText)) {
                             subArray.append(j)
+                            subArrayMatch.append(j.actors)
                         }
                     }
                     else if (i == "Directors") {
                         if (j.director.contains(searchText)) {
                             subArray.append(j)
+                            subArrayMatch.append(j.director)
                         }
                     }
                     else if (i == "Title") {
                         if (j.title.contains(searchText)) {
                             subArray.append(j)
+                            subArrayMatch.append(j.title)
                         }
                     }
                     else if (i == "Year")
@@ -74,6 +81,7 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
                             if (j.year == year)
                             {
                                 subArray.append(j)
+                                subArrayMatch.append(String(j.year))
                             }
                         }
                         else
@@ -83,10 +91,8 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
                     }
                 }
                 searchItems.append(subArray)
+                searchMatch.append(subArrayMatch)
             }
-            /*movies = originalMovies.filter {
-                return $0.title.contains(searchText)
-            }*/
         } else {
             self.searchingText = ""
             movies = originalMovies
@@ -97,6 +103,10 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchController.dismiss(animated: false, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     
     func loadMovies() {
@@ -143,7 +153,7 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
         if (self.searchingText.characters.count > 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchCollectionViewCell;
             cell.movie = self.searchItems[indexPath.section][indexPath.row] as! MovieModel
-            cell.setMovie();
+            cell.setCell(mathSearch: searchMatch[indexPath.section][indexPath.row] as! String)
             return cell
         }
         else

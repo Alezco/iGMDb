@@ -122,7 +122,7 @@ class favoriteVC: UIViewController, iCarouselDataSource, iCarouselDelegate,UIGes
                 shake.completionBlock = {(animation, end) in
                     self.removeButton.isEnabled = true;
                 }
-                self.noFavoritesTV.layer.pop_add(shake, forKey: "shakePassword")
+                self.noFavoritesTV.layer.pop_add(shake, forKey: "shakeNoFavorites")
             }
         }
     }

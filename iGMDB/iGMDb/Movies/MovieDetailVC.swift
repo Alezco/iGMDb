@@ -11,8 +11,9 @@ import YouTubePlayer
 import pop
 import FBSDKShareKit
 import FBSDKMessengerShareKit
+import FaveButton
 
-class MovieDetailVC: UIViewController, YouTubePlayerDelegate {
+class MovieDetailVC: UIViewController, YouTubePlayerDelegate, FaveButtonDelegate {
 
     var movie : MovieModel?;
     @IBOutlet weak var titleLabel: UILabel!
@@ -24,10 +25,13 @@ class MovieDetailVC: UIViewController, YouTubePlayerDelegate {
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
-    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var favoriteButton: FaveButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var plotTextView: UITextView!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    
+    
     
     @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
@@ -51,13 +55,36 @@ class MovieDetailVC: UIViewController, YouTubePlayerDelegate {
         downloadImage(url: URL(string: (movie?.poster)!)!);
         let urlArray: [String] = (movie?.Youtube.components(separatedBy: "/"))!
         youtubePlayer.loadVideoID(urlArray[urlArray.count - 1])
-        
-        
     }
-
+    
+    func faveButton(_ faveButton: FaveButton, didSelected selected: Bool){
+    }
+    
+    func faveButtonDotColors(_ faveButton: FaveButton) -> [DotColors]?{
+        return nil
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let defaults : UserDefaults = UserDefaults.standard
+        var favorites = defaults.array(forKey: "Favorites")
+        let currID : Int = Int(truncatingBitPattern: (self.movie?.id)!)
+        let index = favorites?.index(where: { $0 as! Int == currID })
+        if (index == nil) {
+            self.favoriteButton.isSelected = false;
+        }
+        else
+        {
+            self.favoriteButton.isSelected = true;
+        }
+    }
+
+    @IBAction func onFavoriteClick(_ sender: Any) {
+        self.like();
     }
     
     func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
@@ -109,7 +136,7 @@ class MovieDetailVC: UIViewController, YouTubePlayerDelegate {
         }
     }
     
-    @IBAction func onFavoriteClick(_ sender: Any) {
+    /*@IBAction func onFavoriteClick(_ sender: Any) {
             self.like();
             if let springAnimation = POPSpringAnimation(propertyNamed:
                 kPOPViewScaleXY){
@@ -129,7 +156,7 @@ class MovieDetailVC: UIViewController, YouTubePlayerDelegate {
                 self.favoriteButton.pop_add(springAnimation, forKey:"springAnimation")
 
             }
-    }
+    }*/
     
     @IBAction func OnShareClick(_ sender: Any) {
         if (FBSDKAccessToken.current() == nil)

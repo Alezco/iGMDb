@@ -27,13 +27,16 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7d-2k-fga">
                             <rect key="frame" x="5" y="10" width="229" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XoL-hc-6IX">
-                            <rect key="frame" x="5" y="33" width="229" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKk-BS-Omo">
+                            <rect key="frame" x="5" y="33" width="229" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="86" id="Kjr-Bm-t8O"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -41,17 +44,18 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="b7d-2k-fga" firstAttribute="leading" secondItem="Bju-yu-sEj" secondAttribute="leading" constant="5" id="CO2-hw-JR9"/>
-                        <constraint firstItem="XoL-hc-6IX" firstAttribute="top" secondItem="b7d-2k-fga" secondAttribute="bottom" constant="5" id="Gee-n1-nMt"/>
+                        <constraint firstAttribute="trailing" secondItem="bKk-BS-Omo" secondAttribute="trailing" constant="5" id="I1C-il-O5t"/>
+                        <constraint firstItem="bKk-BS-Omo" firstAttribute="top" secondItem="b7d-2k-fga" secondAttribute="bottom" constant="5" id="Mtz-9U-nyh"/>
                         <constraint firstItem="b7d-2k-fga" firstAttribute="top" secondItem="Bju-yu-sEj" secondAttribute="top" constant="10" id="OIw-Hg-abq"/>
-                        <constraint firstAttribute="trailing" secondItem="XoL-hc-6IX" secondAttribute="trailing" constant="5" id="feo-2I-NXa"/>
-                        <constraint firstItem="XoL-hc-6IX" firstAttribute="leading" secondItem="Bju-yu-sEj" secondAttribute="leading" constant="5" id="k4l-xo-Egh"/>
+                        <constraint firstItem="bKk-BS-Omo" firstAttribute="leading" secondItem="Bju-yu-sEj" secondAttribute="leading" constant="5" id="kZh-tn-Sc5"/>
                         <constraint firstAttribute="trailing" secondItem="b7d-2k-fga" secondAttribute="trailing" constant="5" id="twv-oD-UwU"/>
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite" translatesAutoresizingMaskIntoConstraints="NO" id="0rc-yi-HIv">
-                    <rect key="frame" x="432" y="55" width="25" height="24"/>
+                    <rect key="frame" x="432" y="54.5" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="Wj0-Xj-0Hx"/>
+                        <constraint firstAttribute="height" constant="25" id="sfO-yg-bwi"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -72,8 +76,9 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="favoriteImage" destination="0rc-yi-HIv" id="1F8-FJ-y4j"/>
                 <outlet property="posterImageView" destination="46f-7t-7dZ" id="1jv-LL-Dus"/>
-                <outlet property="searchLabel" destination="XoL-hc-6IX" id="bLa-2o-cLR"/>
+                <outlet property="searchMathchLabel" destination="bKk-BS-Omo" id="O2z-d6-3Ko"/>
                 <outlet property="titleLabel" destination="b7d-2k-fga" id="gjU-jB-Lzs"/>
             </connections>
             <point key="canvasLocation" x="70.5" y="-208.5"/>

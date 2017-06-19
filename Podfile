@@ -11,4 +11,5 @@ target 'iGMDb' do
   pod 'YouTubePlayer'
   pod 'SQLite.swift', '~> 0.11.2'
   pod 'pop', '~> 1.0'
+  pod 'FaveButton', '~> 2.0.3'
 end
