@@ -12,6 +12,8 @@
 		48390AD81EF6DA2A00F71414 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390AD71EF6DA2A00F71414 /* FBSDKShareKit.framework */; };
 		48390ADA1EF6DA3000F71414 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390AD91EF6DA3000F71414 /* Bolts.framework */; };
 		48390ADD1EF6EE7800F71414 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390ADC1EF6EE7800F71414 /* FBSDKMessengerShareKit.framework */; };
+		48B7AE361EF745B900E6050D /* SearchListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B7AE351EF745B900E6050D /* SearchListItemCell.xib */; };
+		48B7AE381EF748A800E6050D /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B7AE371EF748A800E6050D /* SearchCollectionViewCell.swift */; };
 		48BD83E01EF5BBCD00E5A06B /* ListItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BD83DF1EF5BBCD00E5A06B /* ListItemViewCell.xib */; };
 		48D701B61EF4741200FD0EE8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D701B41EF4741200FD0EE8 /* iCarousel.m */; };
 		4C3733561EF4275F00975977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3733551EF4275F00975977 /* AppDelegate.swift */; };
@@ -41,6 +43,8 @@
 		48390AD71EF6DA2A00F71414 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../Pods/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		48390AD91EF6DA3000F71414 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Pods/Bolts.framework; sourceTree = "<group>"; };
 		48390ADC1EF6EE7800F71414 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = ../Pods/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		48B7AE351EF745B900E6050D /* SearchListItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchListItemCell.xib; path = ../../../iGMDB/iGMDb/Storyboards/SearchListItemCell.xib; sourceTree = "<group>"; };
+		48B7AE371EF748A800E6050D /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchCollectionViewCell.swift; path = ../../../iGMDB/iGMDb/Movies/SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		48BD83DF1EF5BBCD00E5A06B /* ListItemViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListItemViewCell.xib; path = ../../../iGMDB/iGMDb/Storyboards/ListItemViewCell.xib; sourceTree = "<group>"; };
 		48D701B31EF4741100FD0EE8 /* iGMDb-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iGMDb-Bridging-Header.h"; sourceTree = "<group>"; };
 		48D701B41EF4741200FD0EE8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				4C3733761EF4279A00975977 /* MovieDetailVC.swift */,
 				4C3733771EF4279A00975977 /* MovieListTVC.swift */,
 				841C270A1EF523F500FB8A7A /* MovieTableViewCell.swift */,
+				48B7AE371EF748A800E6050D /* SearchCollectionViewCell.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 				48BD83DF1EF5BBCD00E5A06B /* ListItemViewCell.xib */,
 				4C37336A1EF4279A00975977 /* LaunchScreen.storyboard */,
 				4C37336C1EF4279A00975977 /* Main.storyboard */,
+				48B7AE351EF745B900E6050D /* SearchListItemCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 				4C37337D1EF4279A00975977 /* Assets.xcassets in Resources */,
 				48BD83E01EF5BBCD00E5A06B /* ListItemViewCell.xib in Resources */,
 				4C37337F1EF4279A00975977 /* Main.storyboard in Resources */,
+				48B7AE361EF745B900E6050D /* SearchListItemCell.xib in Resources */,
 				4C37337E1EF4279A00975977 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +357,7 @@
 			files = (
 				4C3733871EF4279A00975977 /* MovieListTVC.swift in Sources */,
 				48D701B61EF4741200FD0EE8 /* iCarousel.m in Sources */,
+				48B7AE381EF748A800E6050D /* SearchCollectionViewCell.swift in Sources */,
 				4C3733811EF4279A00975977 /* databaseLink.swift in Sources */,
 				4C3733881EF4279A00975977 /* MovieModel.swift in Sources */,
 				4C37338A1EF4279A00975977 /* SplashViewController.swift in Sources */,

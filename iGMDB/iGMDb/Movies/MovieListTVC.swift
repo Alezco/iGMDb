@@ -16,6 +16,9 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
     var movies : Array<MovieModel> = []
     let searchController = UISearchController(searchResultsController: nil)
     var selectedIndex : IndexPath = IndexPath();
+    var sections : [String] = ["Actors", "Directors", "Title", "Year"]
+    var searchingText : String = "";
+    var searchItems = [[]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +35,60 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
         tableView.tableHeaderView = searchController.searchBar
         loadMovies();
         self.tableView.register(UINib(nibName: "ListItemViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        self.tableView.register(UINib(nibName: "SearchListItemCell", bundle: nil), forCellReuseIdentifier: "searchCell")
     }
-
     
-    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.text = ""
+    }
     
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            movies = originalMovies.filter {
-                return $0.title.contains(searchText)
+            self.searchingText = searchText
+            
+            self.searchItems = []
+            for i in sections{
+                print(i)
+                var subArray = [MovieModel]()
+                for j in originalMovies
+                {
+                    if (i == "Actors") {
+                        if (j.actors.contains(searchText)) {
+                            subArray.append(j)
+                        }
+                    }
+                    else if (i == "Directors") {
+                        if (j.director.contains(searchText)) {
+                            subArray.append(j)
+                        }
+                    }
+                    else if (i == "Title") {
+                        if (j.title.contains(searchText)) {
+                            subArray.append(j)
+                        }
+                    }
+                    else if (i == "Year")
+                    {
+                        if let year = Double(searchText)
+                        {
+                            if (j.year == year)
+                            {
+                                subArray.append(j)
+                            }
+                        }
+                        else
+                        {
+                            print("Not a valid number: ")
+                        }
+                    }
+                }
+                searchItems.append(subArray)
             }
+            /*movies = originalMovies.filter {
+                return $0.title.contains(searchText)
+            }*/
         } else {
+            self.searchingText = ""
             movies = originalMovies
         }
         tableView.reloadData()
@@ -66,19 +112,48 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        if (self.searchingText.characters.count > 0) {
+            return sections.count
+        }
         return 1
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (self.searchingText.characters.count > 0) {
+            return 20
+        }
+        return 0
+
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.sections[section]
+    }
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (self.searchingText.characters.count > 0) {
+            return self.searchItems[section].count
+        }
         return self.movies.count;
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MovieTableViewCell;
-        cell.movie = self.movies[indexPath.row];
-        cell.setMovie();
-        return cell
+        if (self.searchingText.characters.count > 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchCollectionViewCell;
+            cell.movie = self.searchItems[indexPath.section][indexPath.row] as! MovieModel
+            cell.setMovie();
+            return cell
+        }
+        else
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MovieTableViewCell;
+            cell.movie = self.movies[indexPath.row];
+            cell.setMovie();
+            return cell
+        }
+
     }
  
 
@@ -129,8 +204,13 @@ class MovieListTVC: UITableViewController, UISearchResultsUpdating {
         // Create a variable that you want to send
         if (segue.identifier == "showDetail") {
             let destinationVC = segue.destination as! MovieDetailVC;
-            let movieToPass = movies[selectedIndex.row];
-            destinationVC.movie = movieToPass;
+            if (self.searchingText.characters.count > 0) {
+                let movieToPass = self.searchItems[selectedIndex.section][selectedIndex.row] as! MovieModel
+                destinationVC.movie = movieToPass;
+            } else {
+                let movieToPass = movies[selectedIndex.row];
+                destinationVC.movie = movieToPass;
+            }
         }
     }
  
