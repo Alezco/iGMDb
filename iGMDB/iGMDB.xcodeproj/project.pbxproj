@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		48390AD41EF6DA2400F71414 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390AD31EF6DA2400F71414 /* FBSDKCoreKit.framework */; };
-		48390AD61EF6DA2700F71414 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390AD51EF6DA2700F71414 /* FBSDKLoginKit.framework */; };
-		48390AD81EF6DA2A00F71414 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390AD71EF6DA2A00F71414 /* FBSDKShareKit.framework */; };
-		48390ADA1EF6DA3000F71414 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390AD91EF6DA3000F71414 /* Bolts.framework */; };
-		48390ADD1EF6EE7800F71414 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48390ADC1EF6EE7800F71414 /* FBSDKMessengerShareKit.framework */; };
 		48B7AE361EF745B900E6050D /* SearchListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B7AE351EF745B900E6050D /* SearchListItemCell.xib */; };
 		48B7AE381EF748A800E6050D /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B7AE371EF748A800E6050D /* SearchCollectionViewCell.swift */; };
 		48BD83E01EF5BBCD00E5A06B /* ListItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BD83DF1EF5BBCD00E5A06B /* ListItemViewCell.xib */; };
@@ -31,6 +26,11 @@
 		4C37338A1EF4279A00975977 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37337A1EF4279A00975977 /* SplashViewController.swift */; };
 		78D77A873FB9F0DA8F55B97B /* Pods_iGMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89350CE34E8CB7DFA9B95F5C /* Pods_iGMDb.framework */; };
 		841C270B1EF523F500FB8A7A /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C270A1EF523F500FB8A7A /* MovieTableViewCell.swift */; };
+		84332D721EFFFD0B004C2E13 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84332D6D1EFFFD0B004C2E13 /* FBSDKCoreKit.framework */; };
+		84332D731EFFFD0B004C2E13 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84332D6E1EFFFD0B004C2E13 /* FBSDKLoginKit.framework */; };
+		84332D741EFFFD0B004C2E13 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84332D6F1EFFFD0B004C2E13 /* FBSDKMessengerShareKit.framework */; };
+		84332D751EFFFD0B004C2E13 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84332D701EFFFD0B004C2E13 /* FBSDKShareKit.framework */; };
+		84332D761EFFFD0B004C2E13 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84332D711EFFFD0B004C2E13 /* Bolts.framework */; };
 		84E3C5341EF43A7F001088B0 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E3C5321EF43A7F001088B0 /* SQLite.framework */; };
 		84E3C5351EF43A7F001088B0 /* YouTubePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E3C5331EF43A7F001088B0 /* YouTubePlayer.framework */; };
 		84E3C5371EF43A86001088B0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E3C5361EF43A86001088B0 /* QuartzCore.framework */; };
@@ -66,6 +66,11 @@
 		4C37337A1EF4279A00975977 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		68136CF67B6A3FA00682AF2A /* Pods-iGMDb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGMDb.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-iGMDb/Pods-iGMDb.debug.xcconfig"; sourceTree = "<group>"; };
 		841C270A1EF523F500FB8A7A /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		84332D6D1EFFFD0B004C2E13 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		84332D6E1EFFFD0B004C2E13 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		84332D6F1EFFFD0B004C2E13 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		84332D701EFFFD0B004C2E13 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		84332D711EFFFD0B004C2E13 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		84E3C5321EF43A7F001088B0 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "../../../Library/Developer/Xcode/DerivedData/iGMDb-elrirhgcbiifwyetlgdgealwlxry/Build/Products/Debug-iphonesimulator/SQLite.swift/SQLite.framework"; sourceTree = "<group>"; };
 		84E3C5331EF43A7F001088B0 /* YouTubePlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YouTubePlayer.framework; path = "../../../Library/Developer/Xcode/DerivedData/iGMDb-elrirhgcbiifwyetlgdgealwlxry/Build/Products/Debug-iphonesimulator/YouTubePlayer/YouTubePlayer.framework"; sourceTree = "<group>"; };
 		84E3C5361EF43A86001088B0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -77,15 +82,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48390AD61EF6DA2700F71414 /* FBSDKLoginKit.framework in Frameworks */,
 				84E3C5371EF43A86001088B0 /* QuartzCore.framework in Frameworks */,
 				84E3C5341EF43A7F001088B0 /* SQLite.framework in Frameworks */,
 				84E3C5351EF43A7F001088B0 /* YouTubePlayer.framework in Frameworks */,
+				84332D751EFFFD0B004C2E13 /* FBSDKShareKit.framework in Frameworks */,
+				84332D741EFFFD0B004C2E13 /* FBSDKMessengerShareKit.framework in Frameworks */,
 				78D77A873FB9F0DA8F55B97B /* Pods_iGMDb.framework in Frameworks */,
-				48390AD81EF6DA2A00F71414 /* FBSDKShareKit.framework in Frameworks */,
-				48390ADD1EF6EE7800F71414 /* FBSDKMessengerShareKit.framework in Frameworks */,
-				48390ADA1EF6DA3000F71414 /* Bolts.framework in Frameworks */,
-				48390AD41EF6DA2400F71414 /* FBSDKCoreKit.framework in Frameworks */,
+				84332D721EFFFD0B004C2E13 /* FBSDKCoreKit.framework in Frameworks */,
+				84332D731EFFFD0B004C2E13 /* FBSDKLoginKit.framework in Frameworks */,
+				84332D761EFFFD0B004C2E13 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +183,7 @@
 		4C3733541EF4275F00975977 /* iGMDb */ = {
 			isa = PBXGroup;
 			children = (
+				84332D6C1EFFFCDA004C2E13 /* FacebookSDK */,
 				48CCC4781EF462BC00A668E9 /* DataAccess */,
 				48CCC47A1EF4631800A668E9 /* Favorites */,
 				48CCC47E1EF4636700A668E9 /* Global */,
@@ -206,6 +212,18 @@
 				89350CE34E8CB7DFA9B95F5C /* Pods_iGMDb.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84332D6C1EFFFCDA004C2E13 /* FacebookSDK */ = {
+			isa = PBXGroup;
+			children = (
+				84332D6D1EFFFD0B004C2E13 /* FBSDKCoreKit.framework */,
+				84332D6E1EFFFD0B004C2E13 /* FBSDKLoginKit.framework */,
+				84332D6F1EFFFD0B004C2E13 /* FBSDKMessengerShareKit.framework */,
+				84332D701EFFFD0B004C2E13 /* FBSDKShareKit.framework */,
+				84332D711EFFFD0B004C2E13 /* Bolts.framework */,
+			);
+			name = FacebookSDK;
 			sourceTree = "<group>";
 		};
 		84E3C53C1EF43B7C001088B0 /* iCarousel */ = {
@@ -502,6 +520,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/YouTubePlayer\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/pop\"",
 					"~/Documents/FacebookSDK/**",
+					"$(PROJECT_DIR)/iGMDb",
 				);
 				INFOPLIST_FILE = iGMDb/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -529,6 +548,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/YouTubePlayer\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/pop\"",
 					"~/Documents/FacebookSDK/**",
+					"$(PROJECT_DIR)/iGMDb",
 				);
 				INFOPLIST_FILE = iGMDb/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
